@@ -85,7 +85,9 @@ class Powerschool
         end
       end
 
-      if results.is_a?(Hash)
+      if resource == :student_guardians
+        results = results.to_a[1][1]
+      elsif results.is_a?(Hash)
         plural = results.keys.first
         results = results[plural][plural.singularize] || []
       end
@@ -116,6 +118,7 @@ class Powerschool
   get :school_courses, :ws, '/school/:school_id/course'
   get :school_terms, :ws, '/school/:school_id/term'
   get :section_enrollment, :ws, '/section/:section_id/section_enrollment'
+  post :student_guardians, '/ws/schema/query/com.pearson.core.guardian.student_guardian_detail'
 
   # PowerTeacher Gradebook (pre Powerschool 10)
   get :assignment, :ptg, 'assignment/:id'
