@@ -7,6 +7,9 @@ require 'powerschool/client'
 class Powerschool
   attr_accessor :client
   attr_accessor :metadata
+
+  default_timeout 10
+
   API_PATHS = {
     ws: '/ws/v1',
     ptg: '/powerschool-ptg-api/v2/',
@@ -33,7 +36,7 @@ class Powerschool
           path, api = api, nil
         end
         define_method(method) do |options = {}|
-          options[:read_timeout] ||= 1000
+          options[:timeout] ||= 10
           return self.client.class.send(command, prepare_path(path.dup, api, options), self.client.options.merge(options))
         end
       end
