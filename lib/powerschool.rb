@@ -33,6 +33,7 @@ class Powerschool
           path, api = api, nil
         end
         define_method(method) do |options = {}|
+          options[:read_timeout] ||= 1000
           return self.client.class.send(command, prepare_path(path.dup, api, options), self.client.options.merge(options))
         end
       end
