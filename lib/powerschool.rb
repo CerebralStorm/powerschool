@@ -8,14 +8,11 @@ class Powerschool
   attr_accessor :client
   attr_accessor :metadata
 
-  default_timeout 10
-
   API_PATHS = {
     ws: '/ws/v1',
     ptg: '/powerschool-ptg-api/v2/',
     xte: '/ws/xte'
   }
-
 
   def initialize(api_credentials, options = {})
     self.client = Class.new(Powerschool::Client) do |klass|
@@ -36,7 +33,6 @@ class Powerschool
           path, api = api, nil
         end
         define_method(method) do |options = {}|
-          options[:timeout] ||= 10
           return self.client.class.send(command, prepare_path(path.dup, api, options), self.client.options.merge(options))
         end
       end

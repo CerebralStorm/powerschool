@@ -1,10 +1,10 @@
 Gem::Specification.new do |s|
   s.name = "powerschool"
-  s.version = "0.2.3"
+  s.version = "0.2.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thomas R. Koll", "Cody Tanner"]
-  s.date = "2015-04-10"
+  s.date = "2017-08-01"
   s.description = "Provides a ruby interface to Powerschool API"
   s.summary = "Provides a ruby interface to Powerschool API"
   s.email = "cerebralstorm@gmail.com"

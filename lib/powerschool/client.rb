@@ -2,7 +2,7 @@ class Powerschool
   class Client
     include HTTParty
 
-    VERSION = '0.2.3'
+    VERSION = '0.2.4'
     attr_accessor :api_credentials, :authenticated, :options
 
     BASE_URI = 'https://partner3.powerschool.com'
